@@ -1,0 +1,41 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#ffffff;
+  font-family:'Poppins', sans-serif;
+}
+/* NAVBAR */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 60px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:bold;
+}
+
+.menu{
+  display:flex;
+  list-style:none;
+  gap:40px;
+}
+
+.menu li{
+  cursor:pointer;
+}
+
+.call-btn{
+  padding:10px 18px;
+  border:1px solid black;
+  background:white;
+  cursor:pointer;
+}
