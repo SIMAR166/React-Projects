@@ -1,0 +1,134 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+// Deepened color palette for text
+$theme-purple: #9664ff;
+$theme-purple-light: #450e92;
+$text-heading: #f4eeff;    // Very pale, crisp lavender-white
+$text-paragraph: #c2b5d8;  // Soft, muted lilac for readable body text
+
+.middle-container {
+    display: flex;
+    gap: 25px;
+    padding:3.5rem 3.6rem;
+    width: 100%;
+
+    .one,
+    .two,
+    .three {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(150, 100, 255, 0.1);
+        border-radius: 20px;
+        padding: 30px;
+        height: 52vh;
+        background-color: rgba(241, 214, 235,0.85);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+            transform: translateY(-8px);
+            border-color: rgba(150, 100, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(150, 100, 255, 0.2),   
+                        0 0 15px rgba(150, 100, 255, 0.15);     
+
+            img {
+                transform: scale(1.03);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            }
+
+            h2 {
+                // The Neon Text Glow Effect
+                color: #ffffff;
+                text-shadow: 0 0 10px rgba(150, 100, 255, 0.8), 
+                             0 0 20px rgba(150, 100, 255, 0.5),
+                             0 0 40px rgba(150, 100, 255, 0.3);
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.4s ease;
+        }
+
+        h2 {
+            font-size: 26px; // Increased for better hierarchy
+            font-weight: 700; // Bolder to support the neon glow
+            color: $text-heading;
+            letter-spacing: 0.5px;
+            margin: 0;
+            
+            // Base shadow to separate text from the image/background
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); 
+            transition: all 0.3s ease;
+        }
+
+        p {
+            font-size: 17px; // Increased slightly for readability
+            line-height: 1.7; // Given more breathing room
+            color:darkmagenta;
+            font-weight:500; // Lighter weight for modern look
+            margin: 0;
+            text-transform: capitalize;
+            font-style: bold;
+            text-align:justify;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.353); 
+        }
+    }
+
+    // First card bigger
+    .one {
+        flex: 2;
+        
+        // Optional: Make the featured card's heading even larger
+        h2 {
+            font-size: 30px; 
+        }
+    }
+
+    // Other cards smaller
+    .two,
+    .three {
+        flex: 1;
+    }
+
+    // Tablet
+    @include tablet {
+        flex-direction: column;
+
+        .one,
+        .two,
+        .three {
+            width: 100%;
+            
+            h2 {
+                font-size: 26px; // Reset sizes for tablet
+            }
+        }
+    }
+
+    // Mobile
+    @include mobile {
+        padding: 60px 5%;
+
+        img {
+            height: 160px;
+        }
+
+        h2 {
+            font-size: 20px; // Mobile friendly sizes
+        }
+        
+        p {
+            font-size: 15px;
+        }
+    }
+}

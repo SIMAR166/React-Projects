@@ -1,0 +1,155 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.top-container {
+
+  width: 100%;
+  min-height: 20vh; 
+padding:1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: $space-xl;
+  max-width: 1400px;
+  margin: auto;
+  position: relative;
+
+  /* LEFT SIDE */
+
+  .left-side {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: $space-md;
+
+    max-width: 450px;
+
+    h1 {
+
+      font-size: 3rem;
+      font-weight: 700;
+
+      line-height: 1.2;
+
+      @include gradient-text;
+
+      letter-spacing: 1px;
+    }
+
+    button {
+
+      @include button-style;
+
+      background: $gradient-main;
+      color: white;
+
+      width: fit-content;
+
+      box-shadow: $shadow-soft;
+
+      transition: all .35s cubic-bezier(.34,1.56,.64,1);
+
+      &:hover {
+
+        transform: translateY(-4px) scale(1.04);
+
+        box-shadow: $shadow-glow;
+      }
+
+    }
+  }
+
+  /* RIGHT SIDE */
+
+  .rightside {
+
+    max-width: 500px;
+
+    font-size: $font-lg;
+
+    line-height: 1.7;
+
+    color: $text-light;
+
+    background: rgba(255,255,255,0.08);
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+
+    padding: $space-lg;
+
+    border-radius: 14px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: $shadow-soft;
+
+    transition: transform .4s ease;
+
+    &:hover {
+
+      transform: translateY(-6px);
+
+      box-shadow: $shadow-glow;
+    }
+
+  }
+
+}
+
+
+/* RESPONSIVE */
+
+@include tablet {
+
+  .top-container {
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: $space-xl;
+
+    .left-side {
+
+      align-items: center;
+
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    .rightside {
+
+      max-width: 600px;
+
+      font-size: 1rem;
+    }
+
+  }
+
+}
+
+
+@include mobile {
+
+  .top-container {
+
+    padding: $space-lg;
+
+    .left-side {
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .rightside {
+
+      font-size: .95rem;
+      padding: $space-md;
+    }
+
+  }
+
+}
+

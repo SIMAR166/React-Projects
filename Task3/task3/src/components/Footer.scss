@@ -1,0 +1,103 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+$footer-purple: #a855f7;
+$glass-border: rgba(255, 255, 255, 0.12); // Crisp white edge
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 2rem;
+    margin-top: 15px;
+
+  background: linear-gradient(
+    135deg, 
+    #2d1b4e 0%,    
+    #702283 50%,   
+    #a855f7 100%   
+);
+    backdrop-filter: blur(10px);
+
+    .start {
+        h6 {
+            font-size: 15px;
+            font-weight: 500; // Lighter weight looks more modern
+            letter-spacing: 1px;
+            color: white;
+            opacity: 0.9;
+            
+            // Subtle lavender glow rather than a harsh black shadow
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+            
+            // Add a subtle "dot" or accent if you want
+            &::before {
+                content: '© ';
+                color: $footer-purple;
+            }
+        }
+    }
+
+    .links {
+        display: flex;
+        gap: 15px; // Reduced gap because anchors now have their own padding
+
+        a {
+            text-decoration: none;
+            font-size: 14px;
+            text-shadow: 0 0 1px palevioletred;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+
+            
+            // 1. Pill Shape & Glassmorphism
+            padding: 10px 22px;
+            border-radius: 100px; // Perfect pill shape
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+
+            &:hover {
+                color: #ffffff;
+                background: rgba(168, 85, 247, 0.15); // Light purple tint
+                border-color: rgba(168, 85, 247, 0.4);
+                transform: translateY(-3px);
+                
+                // 2. The Glow Effect
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2),
+                            0 0 12px rgba(168, 85, 247, 0.2);
+                
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+            }
+
+            // Optional: Subtle active state
+            &:active {
+                transform: translateY(-1px);
+            }
+        }
+    }
+
+    // Tablet Adjustments
+  @include tablet {
+        flex-direction: column-reverse; // Links on top looks better on mobile
+        gap: 30px;
+        padding: 50px 5%;
+        text-align: center;
+    }
+
+    // Mobile Adjustments
+    @include mobile {
+        .links {
+            gap: 10px;
+            justify-content: center;
+            
+            a {
+                padding: 8px 16px; // Slightly smaller on mobile
+                font-size: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,176 @@
+
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.navbar {
+
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  padding: .6rem 1rem;
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+
+  backdrop-filter: blur(10px);
+
+  box-shadow: $shadow-soft;
+
+  animation: navbarFade 0.8s ease;
+
+  .nav-container {
+
+    max-width: 93rem;
+    margin: auto;
+
+    @include flex-between;
+  }
+
+
+/* LEFT */
+
+  .nav-left {
+
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+
+    img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      object-fit: cover;
+
+      box-shadow: $shadow-glow;
+
+      transition: transform .4s ease;
+    }
+
+    img:hover{
+      transform: rotate(10deg) scale(1.08);
+    }
+
+    h3 {
+      font-size: $font-xl;
+      font-weight: 700;
+
+      // background: linear-gradient(135deg,#58218f,#9fa0b5);
+      // -webkit-background-clip: text;
+       @include gradient-text;
+      color: transparent;
+
+      letter-spacing: .5px;
+    }
+  }
+
+
+/* CENTER */
+
+  .nav-links {
+
+    display: flex;
+    gap: $space-lg;
+
+    a {
+
+      position: relative;
+      font-size: 1.2rem;
+      color:#003366;
+      text-decoration: none;
+      font-weight: 500;
+text-shadow: 2px 2px 6px rgba(128, 0, 128, 0.4);
+      transition: .3s;
+
+      &:hover {
+        color: #c084fc;
+      }
+
+      /* underline animation */
+
+      &::after {
+
+        content: "";
+        position: absolute;
+
+        width: 0%;
+        height: 2px;
+
+        left: 0;
+        bottom: -5px;
+
+        background: linear-gradient(
+          90deg,
+          #a855f7,
+          #6366f1
+        );
+
+        transition: width .35s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+
+    }
+  }
+
+
+/* RIGHT BUTTON */
+
+  .nav-btn {
+
+    @include button-style;
+
+    background: linear-gradient(135deg,#a855f7,#6366f1);
+
+    color: white;
+
+    box-shadow: $shadow-soft;
+
+    transition: all .3s ease;
+
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+
+      transform: translateY(-3px) scale(1.05);
+
+      box-shadow: 0 12px 30px rgba(140,80,255,.6);
+    }
+
+  }
+
+
+/* RESPONSIVE */
+
+@include mobile {
+
+  padding: $space-sm;
+
+  .nav-links {
+    display: none;
+  }
+
+}
+
+}
+
+
+/* ------------------ */
+/* NAVBAR ANIMATION */
+/* ------------------ */
+
+@keyframes navbarFade {
+
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}

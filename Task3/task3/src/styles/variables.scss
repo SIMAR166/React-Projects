@@ -1,0 +1,53 @@
+/* COLORS */
+
+$primary: #7c3aed;
+$secondary: #22d3ee;
+$accent: #a855f7;
+
+$text-main: #1f2937;
+$text-light: #6b7280;
+
+$bg-glass: rgba(255,255,255,0.65);
+
+
+/* GRADIENTS */
+
+$gradient-main: linear-gradient(120deg,#7c3aed,#22d3ee);
+$gradient-soft: linear-gradient(120deg,#a855f7,#c084fc);
+
+
+/* TYPOGRAPHY SCALE */
+
+$font-base: 1rem;
+$font-lg: 1.25rem;
+$font-xl: 1.6rem;
+$font-hero: clamp(2rem,4vw,3rem);
+
+
+/* SPACING SYSTEM (REM BASED) */
+
+$space-xs: .5rem;
+$space-sm: 1rem;
+$space-md: 1.5rem;
+$space-lg: 2rem;
+$space-xl: 3rem;
+
+
+/* BORDER RADIUS */
+
+$radius-sm: .5rem;
+$radius-md: .8rem;
+$radius-lg: 1.5rem;
+$radius-xl: 3rem;
+
+
+/* SHADOWS */
+
+$shadow-soft: 0 6px 18px rgba(0,0,0,0.08);
+$shadow-glow: 0 0 20px rgba(124,58,237,.35);
+
+
+/* RESPONSIVE BREAKPOINTS */
+
+$mobile: 768px;
+$tablet: 1024px;
